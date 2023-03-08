@@ -10,9 +10,9 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: bash ./scripts/hello.sh
+    - run: bash ${{ github.action_path }}/scripts/hello.sh
       shell: bash
       if: inputs.script == 'deploy_webservice'
-    - run: bash ./scripts/goodbye.sh
+    - run: bash ${{ github.action_path }}/scripts/goodbye.sh
       shell: bash
       if: inputs.script == 'deploy_function'
