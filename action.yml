@@ -1,0 +1,18 @@
+# action.yml
+name: 'Hello World'
+description: 'Greet someone and record the time'
+
+inputs:
+  script:  # id of input
+    description: 'The something you can input'
+    required: false
+    default: "deploy_webservice"
+runs:
+  using: 'composite'
+  steps:
+    - run: bash ./scripts/hello.sh
+      shell: bash
+      if: ${{ inputs.script == "deploy_webservice" }}
+    - run: bash ./scripts/goodbye.sh
+      shell: bash
+      if: ${{ inputs.script == "deploy_function" }}
