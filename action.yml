@@ -12,7 +12,7 @@ runs:
   steps:
     - run: bash ./scripts/hello.sh
       shell: bash
-      if: ${{ inputs.script == "deploy_webservice" }}
+      if: inputs.script == 'deploy_webservice'
     - run: bash ./scripts/goodbye.sh
       shell: bash
-      if: ${{ inputs.script == "deploy_function" }}
+      if: inputs.script == 'deploy_function'
